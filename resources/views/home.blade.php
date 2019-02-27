@@ -7,15 +7,12 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
+               <a href="addProducts">Add products</a>
+                <a href="showAllProducts">Show products</a>
+                <a href="addCustomers">Customer Registration</a>
+                <a href="showAllCustomers">Show All Customers</a>
+                <a href="ContactSupport">Contact For Help</a>
+                <a href="showtHelp">Show all request for help</a>
             </div>
         </div>
     </div>
