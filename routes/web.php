@@ -25,6 +25,10 @@ Route::get('/ContactSupport', function () {
     return view('ContactSupport');
 });
 
+Route::get('/upload_productImages', function () {
+    return view('upload_productImages');
+});
+
 
 Route::get('/addProduct','productsController@insertProduct');
 
@@ -32,11 +36,17 @@ Route::get('/showAllProducts', 'productsController@showProducts');
 
 Route::get('/addCustomer','customersController@insertCustomer');
 
-Route::get('/showAllCustomers', 'customersCo;ntroller@showCutomers');
+Route::get('/showAllCustomers', 'customersController@showCutomers');
 
-Route::get('/contactHelp','ContactController@insertContact');
+Route::get('/deleteProduct/{product_id}','productsController@deleteProduct');
 
-Route::get('/showtHelp','ContactController@showAllHelpRequest');
+Route::get('/updateProductInfo/{product_id}','productsController@updateProductsBefore');
+
+Route::get('//updateProductToTable/{product_id}','productsController@updateProductsAfter');
+
+Route::get('/deleteCustomer/{customer_id}','customersController@deleteCustomer');
+
+Route::post('form','mediaController@uploadImage');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

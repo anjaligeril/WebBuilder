@@ -39,11 +39,17 @@ class customersController extends Controller
         $customer->country=$country;
 
         $customer->save();
-        echo 'insert data';
+        return back()->with('success', 'Customer details added successfully');
     }
 
     public function showCutomers(){
         $allCustomers=Customer::all();
         return view( 'showAllCustomers')->with ('customers',$allCustomers);
     }
+
+    public function deleteCustomer($customer_id){
+        Customer::destroy($customer_id);
+        return back()->with('success', 'Customer deleted successfully');
+    }
+
 }
