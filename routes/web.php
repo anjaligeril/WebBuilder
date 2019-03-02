@@ -40,3 +40,5 @@ Route::get('/showtHelp','ContactController@showAllHelpRequest');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/siteRegistration','siteController@siteRegistration');

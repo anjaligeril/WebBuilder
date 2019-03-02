@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\site;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -13,6 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+
         $this->middleware('auth');
     }
 
@@ -23,6 +26,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $check=Site::where('user_id',Auth::User()->id)->count();
+        if($check>0){
+            return view('home');
+        }else{
+            return view('addSiteInformation');
+        }
+      //  return view('home');
     }
 }
